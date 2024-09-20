@@ -25,17 +25,17 @@ const Toast: React.FC<ToastProps> = ({
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true); // Toast muncul
+    setIsVisible(true);
     const timer = setTimeout(() => {
-      setIsClosing(true); // Mulai animasi keluar
-      setTimeout(onClose, 300); // Hapus setelah animasi selesai
+      setIsClosing(true);
+      setTimeout(onClose, 300);
     }, life);
     return () => clearTimeout(timer);
   }, [life, onClose]);
 
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(onClose, 300); // Hapus setelah animasi selesai
+    setTimeout(onClose, 300);
   };
 
   const severityClasses = {

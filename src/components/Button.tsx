@@ -1,5 +1,33 @@
 import React from 'react';
 
+/**
+ * Button Component
+ *
+ * This is a reusable button component for React applications. It supports different severity levels,
+ * optional icons, and rounded corners.
+ *
+ * @component
+ * @example
+ * // Example usage:
+ * <Button
+ *   severity="primary"
+ *   label="Click Me"
+ *   onClick={() => alert('Button clicked!')}
+ *   rounded
+ *   icon={<SomeIcon />}
+ * />
+ *
+ * @param {Object} props - The properties object.
+ * @param {'primary' | 'secondary' | 'danger' | 'warning'} [props.severity] - The severity level of the button.
+ * This determines the button's color. Default is undefined.
+ * @param {string} props.label - The text label of the button.
+ * @param {function} [props.onClick] - The function to call when the button is clicked. Default is undefined.
+ * @param {boolean} [props.rounded] - If true, the button will have fully rounded corners. Default is false.
+ * @param {React.ReactNode} [props.icon] - An optional icon to display inside the button. Default is undefined.
+ *
+ * @returns {JSX.Element} The rendered button component.
+ */
+
 type Severity = 'primary' | 'secondary' | 'danger' | 'warning';
 
 interface ButtonProps {
