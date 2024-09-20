@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Button from './components/Button';
+import useToast from './components/Toast/useToast';
+import { AlertFillIcon, CheckCircleFillIcon } from '@primer/octicons-react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { addToast } = useToast();
+
+  const handleSuccess = () => {
+    addToast({ severity: 'success', message: 'Yeah' });
+  };
+
+  const handleError = () => {
+    addToast({ severity: 'error', message: 'Yes' });
+  };
+
+  const handleWarning = () => {
+    addToast({ severity: 'warning' });
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='flex flex-col gap-2 justify-center my-5'>
+        <h1 className='justify-center flex'>Rounded Button</h1>
+        <div className='flex flex-row justify-center'>
+          <Button
+            label='Success'
+            icon={<CheckCircleFillIcon />}
+            rounded
+            severity='primary'
+            onClick={handleSuccess}
+          />
+          <Button
+            label='Error'
+            severity='danger'
+            rounded
+            onClick={handleError}
+          />
+          <Button
+            label='Warning'
+            icon={<AlertFillIcon />}
+            rounded
+            severity='warning'
+            onClick={handleWarning}
+          />
+          <Button label='Waduh' rounded severity='secondary' />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

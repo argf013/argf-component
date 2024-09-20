@@ -1,29 +1,49 @@
 {
   "name": "argf-component",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.21",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "author": "argf",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "prepare": "npm run build",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
-    "typescript": "^5.5.3",
+    "microbundle": "^0.15.1",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.12",
+    "typescript": "^5.6.2",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "@primer/octicons-react": "^19.11.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "tslib": "^2.7.0"
   }
 }
