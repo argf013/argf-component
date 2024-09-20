@@ -5,7 +5,6 @@ import {
   XIcon,
 } from '@primer/octicons-react';
 import React, { useEffect, useState } from 'react';
-import '../../index.css';
 
 export type Severity = 'error' | 'success' | 'warning';
 
@@ -26,17 +25,17 @@ const Toast: React.FC<ToastProps> = ({
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    setIsVisible(true); // Toast muncul
     const timer = setTimeout(() => {
-      setIsClosing(true);
-      setTimeout(onClose, 300);
+      setIsClosing(true); // Mulai animasi keluar
+      setTimeout(onClose, 300); // Hapus setelah animasi selesai
     }, life);
     return () => clearTimeout(timer);
   }, [life, onClose]);
 
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(onClose, 300);
+    setTimeout(onClose, 300); // Hapus setelah animasi selesai
   };
 
   const severityClasses = {
@@ -53,7 +52,9 @@ const Toast: React.FC<ToastProps> = ({
 
   return (
     <div
-      className={`relative px-3 py-2 flex flex-row items-center gap-2 rounded-lg w-[20em] text-[14px] shadow-md transition-transform duration-300 ${isVisible && !isClosing ? 'toast-enter' : 'toast-exit'} ${severityClasses[severity]}`}
+      className={`relative px-3 py-2 flex flex-row items-center gap-2 rounded-lg w-[20em] text-[14px] shadow-md transform transition-all duration-300 ease-in-out 
+        ${isVisible && !isClosing ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}
+        ${severityClasses[severity]}`}
     >
       <span>{severityIcons[severity]}</span>
       <span>{message}</span>
