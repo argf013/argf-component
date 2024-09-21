@@ -1,8 +1,9 @@
 name: Publish Package to npmjs
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -10,12 +11,12 @@ jobs:
     permissions:
       contents: read
       id-token: write
-      packages: write  # Tambahkan ini untuk memberikan izin menulis paket
+      packages: write
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
- 
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
