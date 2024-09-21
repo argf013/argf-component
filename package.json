@@ -11,6 +11,10 @@
     "LICENSE",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argf013/argf-react.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc",
