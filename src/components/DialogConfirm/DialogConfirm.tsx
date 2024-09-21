@@ -3,15 +3,69 @@ import Dialog from '../Dialog/Dialog';
 import { InfoIcon, AlertFillIcon } from '@primer/octicons-react';
 
 interface DialogConfirmProps {
+  /**
+   *  Set the dialog header text
+   *  e.g. 'Delete item'
+   */
   header: string;
+
+  /**
+   *  Set the dialog message
+   *  e.g. 'Are you sure you want to delete this item?'
+   */
   message: string;
+
+  /**
+   *  Set the dialog items
+   *  you can pass items as an array of strings
+   *  e.g. ['item1', 'item2']
+   */
   items?: string[];
+
+  /**
+   *  Set the dialog severity
+   *  @default 'info'
+   */
   severity?: 'info' | 'warning' | 'danger';
+
+  /**
+   *  Callback function to cancel the dialog
+   *  e.g. () => setOpen(false)
+   */
   onCancel: () => void;
+
+  /**
+   *  Callback function to submit the dialog
+   *  e.g. () => setOpen(false)
+   */
   onSubmit: () => void;
+
+  /**
+   *  Set the dialog submit label
+   *  @default 'Submit'
+   *  e.g. submitLabel='Delete'
+   */
   submitLabel?: string;
+
+  /**
+   *  Set the dialog cancel label
+   *  @default 'Cancel'
+   *  e.g. cancelLabel='Cancel'
+   */
   cancelLabel?: string;
+
+  /**
+   *  Controls whether the dialog is visible or not
+   *  @default false
+   *  e.g. visible={true}
+   */
   visible: boolean;
+
+  /**
+   *  Controls whether the dialog header icon is visible or not
+   *  @default true
+   *  e.g. headerIcon={false}
+   */
   headerIcon?: boolean;
 }
 

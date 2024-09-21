@@ -3,19 +3,31 @@ import React from 'react';
 type Severity = 'primary' | 'secondary' | 'danger' | 'warning';
 
 interface ButtonProps {
-  /* Set the button severity */
+  /**
+   *  Set the button severity
+   */
   severity?: Severity;
+
   /* Button label */
   label: string;
-  /* Callback function when button is clicked */
+
+  /**
+   * Callback function when button is clicked
+   */
   onClick?: () => void;
+
   /**
    * Set button radius. When `true`, the button will be rounded.
    * @type {boolean}
    * @default true
    */
   rounded?: boolean;
-  /* Slot for button icon */
+
+  /**
+   * Button icon
+   * @type {React.ReactNode}
+   * e.g. <InfoIcon />
+   */
   icon?: React.ReactNode;
 }
 

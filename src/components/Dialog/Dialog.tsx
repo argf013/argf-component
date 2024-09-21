@@ -2,18 +2,46 @@ import { XIcon } from '@primer/octicons-react';
 import React, { useState, useEffect } from 'react';
 
 interface DialogProps {
-  /* Dialog header text */
+  /**
+   *  Dialog header text
+   * */
   header: string;
-  /* Slot for dialog body  */
+  
+  /**
+   * Slot for dialog content
+   * you can pass any JSX element as children
+   * e.g. <p>Dialog content</p>
+   */
   children: React.ReactNode;
-  /* Controls dialog visibility */
+  
+  /**
+   * Controls whether the dialog is visible or not
+   * @type {boolean}
+   */
   visible: boolean;
-  /* Set dialog size */
+  
+  /**
+   * Dialog size
+   * @type {'small' | 'medium' | 'large'}
+   * @default 'medium'
+   */
   size?: 'small' | 'medium' | 'large';
-  /* Slot for dialog icon */
+  
+  /**
+   * Dialog icon
+   * @type {React.ReactNode}
+   * e.g. <InfoIcon />
+   */
   icon?: React.ReactNode;
-  /* Set dialog severity */
+  
+  /**
+   * Dialog severity
+   * @type {'info' | 'danger' | 'warning'}
+   * @default 'info'
+   * e.g. 'info' | 'danger' | 'warning'
+   */
   severity?: 'info' | 'danger' | 'warning';
+  
   /**
    * Controls whether the dialog is closeable. When `true`, the X icon will be visible.
    * @type {boolean}
