@@ -24,8 +24,8 @@
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
     "format": "prettier --write .",
-    "prepublish:npm": "npm run build && npm set name 'argf-react'",
-    "prepublish:github": "npm set name '@argf013/argf-react'"
+    "prepublish:npm": "npm run build && sed -i 's/\"name\": \"@argf013\\/argf-react\"/\"name\": \"argf-react\"/' package.json",
+    "prepublish:github": "sed -i 's/\"name\": \"argf-react\"/\"name\": \"@argf013\\/argf-react\"/' package.json"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.7",
