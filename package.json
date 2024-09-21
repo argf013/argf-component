@@ -1,6 +1,6 @@
 {
   "name": "@argf013/argf-react",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "module": "./dist/esm/index.js",
   "description": "Reusable React components",
   "types": "./dist/esm/index.d.ts",
