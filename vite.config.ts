@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
+import { visualizer } from 'rollup-plugin-visualizer';
 import react from "@vitejs/plugin-react-swc";
 import dts from "vite-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import path from "path";
-import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
   build: {
@@ -21,8 +21,8 @@ export default defineConfig({
         },
       },
       plugins: [
-        terser(), // Untuk mengoptimalkan ukuran bundle
-        visualizer({ filename: './dist/stats.html' }), // Untuk analisis ukuran bundle
+        terser(),
+        visualizer({ filename: './stats/stats.html' }),
       ],
     },
     sourcemap: true,
