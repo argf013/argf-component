@@ -20,7 +20,6 @@
     "dev": "vite",
     "build": "tsc",
     "build:esm": "tsc",
-    "prepare": "npm run build",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
