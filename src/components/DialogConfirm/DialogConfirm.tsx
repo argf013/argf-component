@@ -130,7 +130,7 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
     >
       <div>
         <span>{message}</span>
-        <ul className='list-disc px-6'>
+        <ul className='list-disc px-6 py-2'>
           {items?.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
         <div className='flex justify-end mt-4'>

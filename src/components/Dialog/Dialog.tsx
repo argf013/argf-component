@@ -110,7 +110,7 @@ const Dialog: React.FC<DialogProps> = ({
     <>
       {show && (
         <div
-          className={`fixed inset-0 flex items-center justify-center backdrop-blur transition-opacity duration-300 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
+          className={`fixed z-20 inset-0 flex items-center justify-center backdrop-blur transition-opacity duration-300 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
         >
           <div
             className={`bg-white px-5 py-4 rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
