@@ -1,0 +1,99 @@
+import { XIcon } from '@primer/octicons-react';
+import React, { useState, useEffect } from 'react';
+
+interface DialogProps {
+  /* Dialog header text */
+  header: string;
+  /* Slot for dialog body  */
+  children: React.ReactNode;
+  /* Controls dialog visibility */
+  visible: boolean;
+  /* Set dialog size */
+  size?: 'small' | 'medium' | 'large';
+  /* Slot for dialog icon */
+  icon?: React.ReactNode;
+  /* Set dialog severity */
+  severity?: 'info' | 'danger';
+  /**
+   * Controls whether the dialog is closeable. When `true`, the X icon will be visible.
+   * @type {boolean}
+   * @default true
+   */
+  closeable?: boolean;
+  /**
+   * Callback function to close the dialog.
+   * @type {function}
+   */
+  onClose: () => void;
+}
+
+const Dialog: React.FC<DialogProps> = ({
+  header,
+  children,
+  visible,
+  onClose,
+  size = 'medium',
+  icon,
+  severity = 'primary',
+  closeable = true,
+}) => {
+  const [show, setShow] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (visible) {
+      setShow(true);
+      setTimeout(() => setAnimate(true), 10);
+    } else {
+      setAnimate(false);
+      setTimeout(() => setShow(false), 300);
+    }
+  }, [visible]);
+
+  const sizeClasses = {
+    small: 'w-1/4 min-w-[15em]',
+    medium: 'w-1/3 min-w-[20em]',
+    large: 'w-1/2 min-w-[30em]',
+  };
+
+  const severityClasses = {
+    info: 'text-blue-500',
+    danger: 'text-red-500',
+  };
+
+  return (
+    <>
+      {show && (
+        <div
+          className={`fixed inset-0 flex items-center justify-center backdrop-blur transition-opacity duration-300 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <div
+            className={`bg-white rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
+          >
+            <div
+              className={`px-5 pt-4 rounded-t-lg flex justify-between items-center ${severityClasses[severity as 'info' | 'danger']}`}
+            >
+              <div className='flex items-center'>
+                {icon && <div className='mr-2 flex items-center'>{icon}</div>}
+                <h2 className='text-lg font-semibold flex items-center'>
+                  {header}
+                </h2>
+              </div>
+              {closeable && (
+                <button
+                  onClick={onClose}
+                  className='text-dark flex items-center'
+                >
+                  <XIcon />
+                </button>
+              )}
+            </div>
+            <div className='px-5 py-4'>{children}</div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Dialog;
