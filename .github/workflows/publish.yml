@@ -36,9 +36,9 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: npm publish
         env: 
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLIS_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
 
       - name: Publish to GitHub Packages
         run: npm publish --access public --registry=https://npm.pkg.github.com
