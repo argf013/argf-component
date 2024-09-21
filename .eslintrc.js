@@ -19,6 +19,9 @@ module.exports = [
       '@typescript-eslint': tseslint,
       prettier: prettier,
     },
+    extends: [
+      'ts-code-standard',
+    ],
     rules: {
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
