@@ -1,5 +1,5 @@
 {
-  "name": "@argf013/argf-react",
+  "name": "argf-react",
   "version": "1.1.11",
   "module": "./dist/esm/index.js",
   "description": "Reusable React components",
@@ -23,7 +23,9 @@
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepublish:npm": "npm run build && npm set name 'argf-react'",
+    "prepublish:github": "npm set name '@argf013/argf-react'"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.7",
