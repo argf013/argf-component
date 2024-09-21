@@ -1,6 +1,6 @@
 {
   "include": ["src"],
-  "exclude": ["dist", "node_modules", "src/main.tsx"],
+  "exclude": ["dist", "node_modules", "src/main.tsx", "src/App.tsx"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
