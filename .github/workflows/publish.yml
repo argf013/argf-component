@@ -34,7 +34,6 @@ jobs:
 
       - name: Publish to npm
         run: |
-          npm run prepublish:npm
           npm publish --registry=https://registry.npmjs.org
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
