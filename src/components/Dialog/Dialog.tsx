@@ -2,56 +2,13 @@ import { XIcon } from '@primer/octicons-react';
 import React, { useState, useEffect } from 'react';
 
 interface DialogProps {
-  /**
-   *  Dialog header text
-   * */
   header: string;
-
-  /**
-   * Slot for dialog content
-   * you can pass any JSX element as children
-   * e.g. <p>Dialog content</p>
-   */
   children: React.ReactNode;
-
-  /**
-   * Controls whether the dialog is visible or not
-   * @type {boolean}
-   */
   visible: boolean;
-
-  /**
-   * Dialog size
-   * @type {'small' | 'medium' | 'large'}
-   * @default 'medium'
-   */
   size?: 'small' | 'medium' | 'large';
-
-  /**
-   * Dialog icon
-   * @type {React.ReactNode}
-   * e.g. <InfoIcon />
-   */
   icon?: React.ReactNode;
-
-  /**
-   * Dialog severity
-   * @type {'info' | 'danger' | 'warning'}
-   * @default 'info'
-   * e.g. 'info' | 'danger' | 'warning'
-   */
   severity?: 'info' | 'danger' | 'warning';
-
-  /**
-   * Controls whether the dialog is closeable. When `true`, the X icon will be visible.
-   * @type {boolean}
-   * @default true
-   */
   closeable?: boolean;
-  /**
-   * Callback function to close the dialog.
-   * @type {function}
-   */
   onClose: () => void;
 }
 
@@ -62,26 +19,27 @@ const Dialog: React.FC<DialogProps> = ({
   onClose,
   size = 'medium',
   icon,
-  severity = 'primary',
+  severity = 'info',
   closeable = true,
 }) => {
   const [show, setShow] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     if (visible) {
-      console.log('Opening dialog');
       setShow(true);
       setTimeout(() => {
         setAnimate(true);
-        console.log('Animating in');
+        console.log('Dialog mounted');
       }, 10);
     } else {
-      console.log('Animating out');
       setAnimate(false);
+      setIsClosing(true);
+      console.log('Dialog unmounted');
       setTimeout(() => {
         setShow(false);
-        console.log('Dialog closed');
+        setIsClosing(false);
       }, 500);
     }
   }, [visible]);
@@ -116,7 +74,7 @@ const Dialog: React.FC<DialogProps> = ({
 
   return (
     <>
-      {show && (
+      {(show || isClosing) && (
         <div
           className={`fixed z-20 inset-0 flex items-center justify-center backdrop-blur transition-all transform transition-opacity duration-500 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
         >
@@ -124,7 +82,7 @@ const Dialog: React.FC<DialogProps> = ({
             className={`bg-white px-6 py-5 rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
           >
             <div
-              className={` rounded-t-lg flex justify-between items-center ${severityClasses[severity as 'info' | 'danger' | 'warning']}`}
+              className={`rounded-t-lg flex justify-between items-center ${severityClasses[severity as 'info' | 'danger' | 'warning']}`}
             >
               <div className='flex items-center'>
                 {icon && <div className='mr-2 flex items-center'>{icon}</div>}
