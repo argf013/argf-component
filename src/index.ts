@@ -1,5 +1,7 @@
 import { ToastProvider } from './components/Toast/ToastProvider';
 import Button from './components/Button/Button';
+import Dialog from './components/Dialog/Dialog';
+import DialogConfirm from './components/DialogConfirm/DialogConfirm';
 import Toast from './components/Toast/Toast';
 import useToast from './components/Toast/useToast';
-export { Button, Toast, ToastProvider, useToast };
+export { Button, Toast, ToastProvider, useToast, Dialog, DialogConfirm };

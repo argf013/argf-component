@@ -105,7 +105,7 @@ const Dialog: React.FC<DialogProps> = ({
                 </button>
               )}
             </div>
-            <div className=' py-2'>{children}</div>
+            <div className='text-left py-2'>{children}</div>
           </div>
         </div>
       )}
