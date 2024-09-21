@@ -26,8 +26,10 @@ const Toast: React.FC<ToastProps> = ({
 
   useEffect(() => {
     setIsVisible(true);
+    console.log('Toast mounted');
     const timer = setTimeout(() => {
       setIsClosing(true);
+      console.log('Toast unmounted');
       setTimeout(onClose, 300);
     }, life);
     return () => clearTimeout(timer);
