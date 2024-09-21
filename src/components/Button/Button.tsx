@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const getButtonClass = (severity: string) => {
     const baseClass =
-      'text-white font-medium text-[13px] md:text-base lg:text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none';
+      'text-white font-medium text-[13px] md:text-base lg:text-sm px-5 py-2.5';
     const roundedClass = rounded ? 'rounded-full' : 'rounded-md';
     switch (severity) {
       case 'primary':
