@@ -1,4 +1,4 @@
-name: Publish Package to npmjs
+name: Publish Package to GitHub Packages
 
 on:
   push:
@@ -21,8 +21,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
 
+      # Install pnpm globally
       - name: Install pnpm
         run: npm install -g pnpm
 
@@ -34,5 +35,5 @@ jobs:
 
       - name: Publish the Package
         run: pnpm publish --access public
-        env: 
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLIS_TOKEN }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
