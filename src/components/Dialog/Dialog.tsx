@@ -110,10 +110,10 @@ const Dialog: React.FC<DialogProps> = ({
     <>
       {show && (
         <div
-          className={`fixed z-20 inset-0 flex items-center justify-center backdrop-blur transition-opacity duration-300 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
+          className={`fixed z-20 inset-0 flex items-center justify-center backdrop-blur transition-opacity duration-500 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
         >
           <div
-            className={`bg-white px-5 py-4 rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
+            className={`bg-white px-6 py-5 rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
           >
             <div
               className={` rounded-t-lg flex justify-between items-center ${severityClasses[severity as 'info' | 'danger' | 'warning']}`}
@@ -133,7 +133,7 @@ const Dialog: React.FC<DialogProps> = ({
                 </button>
               )}
             </div>
-            <div className='text-left py-2'>{children}</div>
+            <div className='text-left pt-2'>{children}</div>
           </div>
         </div>
       )}

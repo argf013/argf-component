@@ -100,11 +100,11 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
   const getButtonClass = (severity: 'info' | 'warning' | 'danger') => {
     switch (severity) {
       case 'warning':
-        return 'bg-yellow-500 text-white';
+        return 'bg-yellow-500 text-white hover:bg-yellow-600 hover:text-gray-100';
       case 'danger':
-        return 'bg-red-500 text-white';
+        return 'bg-red-500 text-white hover:bg-red-600 hover:text-gray-100';
       default:
-        return 'bg-blue-500 text-white';
+        return 'bg-blue-500 text-white hover:bg-blue-600 hover:text-gray-100';
     }
   };
 
@@ -133,8 +133,8 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
         <ul className='list-disc px-6 py-2'>
           {items?.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
-        <div className='flex justify-end mt-4'>
-          <button onClick={onCancel} className='mr-2'>
+        <div className='flex justify-end gap-2 mt-4'>
+          <button onClick={onCancel} className='hover:bg-gray-200 py-2 px-4 rounded-full'>
             {cancelLabel}
           </button>
           <button
