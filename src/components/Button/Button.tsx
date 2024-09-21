@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const getButtonClass = (severity: string) => {
     const baseClass =
-      'text-white font-medium text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none';
+      'text-white font-medium text-[13px] md:text-base lg:text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none';
     const roundedClass = rounded ? 'rounded-full' : 'rounded-md';
     switch (severity) {
       case 'primary':
@@ -45,7 +45,10 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <button className={getButtonClass(severity as Severity)} onClick={onClick}>
+    <button
+      className={`${getButtonClass(severity as Severity)} flex flex-row items-center`}
+      onClick={onClick}
+    >
       {icon && <span className='mr-2'>{icon}</span>}
       {label}
     </button>

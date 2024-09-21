@@ -13,7 +13,7 @@ interface DialogProps {
   /* Slot for dialog icon */
   icon?: React.ReactNode;
   /* Set dialog severity */
-  severity?: 'info' | 'danger';
+  severity?: 'info' | 'danger' | 'warning';
   /**
    * Controls whether the dialog is closeable. When `true`, the X icon will be visible.
    * @type {boolean}
@@ -50,6 +50,22 @@ const Dialog: React.FC<DialogProps> = ({
     }
   }, [visible]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && closeable) {
+        onClose();
+      }
+    };
+
+    if (visible) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [visible, closeable, onClose]);
+
   const sizeClasses = {
     small: 'w-1/4 min-w-[15em]',
     medium: 'w-1/3 min-w-[20em]',
@@ -59,6 +75,7 @@ const Dialog: React.FC<DialogProps> = ({
   const severityClasses = {
     info: 'text-blue-500',
     danger: 'text-red-500',
+    warning: 'text-yellow-500',
   };
 
   return (
@@ -68,10 +85,10 @@ const Dialog: React.FC<DialogProps> = ({
           className={`fixed inset-0 flex items-center justify-center backdrop-blur transition-opacity duration-300 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}
         >
           <div
-            className={`bg-white rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
+            className={`bg-white px-5 py-4 rounded-lg shadow-lg ${sizeClasses[size]} transform transition-transform duration-300 ease-in-out ${animate ? 'scale-100' : 'scale-95'}`}
           >
             <div
-              className={`px-5 pt-4 rounded-t-lg flex justify-between items-center ${severityClasses[severity as 'info' | 'danger']}`}
+              className={` rounded-t-lg flex justify-between items-center ${severityClasses[severity as 'info' | 'danger' | 'warning']}`}
             >
               <div className='flex items-center'>
                 {icon && <div className='mr-2 flex items-center'>{icon}</div>}
@@ -88,7 +105,7 @@ const Dialog: React.FC<DialogProps> = ({
                 </button>
               )}
             </div>
-            <div className='px-5 py-4'>{children}</div>
+            <div className=' py-2'>{children}</div>
           </div>
         </div>
       )}

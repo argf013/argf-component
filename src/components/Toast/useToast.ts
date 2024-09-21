@@ -7,6 +7,10 @@ import { ToastContext, ToastContextProps } from './ToastProvider';
  * 
  * @returns {ToastContextProps} The context value containing addToast and removeToast functions.
  * @throws Will throw an error if used outside of a ToastProvider.
+ * 
+ * example usage:
+ * const { addToast } = useToast();
+ * addToast({ message: 'Hello, World!', severity: 'success' });
  */
 const useToast = (): ToastContextProps => {
   const context = useContext(ToastContext);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from './components/Button/Button';
 import useToast from './components/Toast/useToast';
 import Dialog from './components/Dialog/Dialog';
+import DialogConfirm from './components/DialogConfirm/DialogConfirm';
 import {
   AlertFillIcon,
   CheckCircleFillIcon,
@@ -15,6 +16,13 @@ function App() {
   const [isDialogVisible, setDialogVisible] = useState(false);
   const [isDangerDialogVisible, setDangerDialogVisible] = useState(false);
   const [isInfoDialogVisible, setInfoDialogVisible] = useState(false);
+  const [isWarningDialogVisible, setWarningDialogVisible] = useState(false);
+  const [isConfirmWarningDialogVisible, setConfirmWarningDialogVisible] =
+    useState(false);
+  const [isConfirmDangerDialogVisible, setConfirmDangerDialogVisible] =
+    useState(false);
+  const [isConfirmInfoDialogVisible, setConfirmInfoDialogVisible] =
+    useState(false);
 
   const openDialog = () => setDialogVisible(true);
   const closeDialog = () => setDialogVisible(false);
@@ -25,11 +33,45 @@ function App() {
   const openInfoDialog = () => setInfoDialogVisible(true);
   const closeInfoDialog = () => setInfoDialogVisible(false);
 
+  const openWarningDialog = () => setWarningDialogVisible(true);
+  const closeWarningDialog = () => setWarningDialogVisible(false);
+
+  const openConfirmWarningDialog = () => setConfirmWarningDialogVisible(true);
+  const closeConfirmWarningDialog = () => setConfirmWarningDialogVisible(false);
+
+  const openConfirmDangerDialog = () => setConfirmDangerDialogVisible(true);
+  const closeConfirmDangerDialog = () => setConfirmDangerDialogVisible(false);
+
+  const openConfirmInfoDialog = () => setConfirmInfoDialogVisible(true);
+  const closeConfirmInfoDialog = () => setConfirmInfoDialogVisible(false);
+
+  const handleConfirmWarningSubmit = () => {
+    console.log('Warning Confirmed');
+    closeConfirmWarningDialog();
+  };
+
+  const handleConfirmDangerSubmit = () => {
+    console.log('Danger Confirmed');
+    closeConfirmDangerDialog();
+  };
+
+  const handleConfirmInfoSubmit = () => {
+    console.log('Info Confirmed');
+    closeConfirmInfoDialog();
+  };
+
   return (
-    <>
-      <div className='flex flex-col gap-2 justify-center my-5'>
-        <h1 className='justify-center flex'>Rounded Button With Icon</h1>
-        <div className='flex flex-row justify-center'>
+    <div className='max-w-4xl mx-auto py-10'>
+      <h1 className='text-center text-3xl font-bold mb-8'>
+        Documentation Page
+      </h1>
+
+      {/* Section Rounded Button With Icon */}
+      <section className='mb-10'>
+        <h2 className='text-center text-2xl font-semibold mb-6'>
+          Rounded Button With Icon
+        </h2>
+        <div className='flex justify-center gap-4'>
           <Button
             label='Success'
             icon={<CheckCircleFillIcon />}
@@ -58,8 +100,14 @@ function App() {
             severity='secondary'
           />
         </div>
-        <h1 className='justify-center flex'>Normal Button</h1>
-        <div className='flex flex-row justify-center'>
+      </section>
+
+      {/* Section Normal Button */}
+      <section className='mb-10'>
+        <h2 className='text-center text-2xl font-semibold mb-6'>
+          Normal Button
+        </h2>
+        <div className='flex justify-center gap-4'>
           <Button
             label='Success'
             severity='primary'
@@ -77,8 +125,12 @@ function App() {
           />
           <Button label='Waduh' severity='secondary' />
         </div>
-        <h1 className='justify-center flex'>Dialog</h1>
-        <div className='flex flex-row justify-center'>
+      </section>
+
+      {/* Section Dialog */}
+      <section className='mb-10'>
+        <h2 className='text-center text-2xl font-semibold mb-6'>Dialog</h2>
+        <div className='flex justify-center gap-4'>
           <Button label='Dialog' severity='primary' onClick={openDialog} />
           <Button
             label='Dialog Danger'
@@ -90,8 +142,39 @@ function App() {
             severity='primary'
             onClick={openInfoDialog}
           />
+          <Button
+            label='Dialog Warning'
+            severity='warning'
+            onClick={openWarningDialog}
+          />
         </div>
-      </div>
+      </section>
+
+      {/* Section Dialog Confirm */}
+      <section className='mb-10'>
+        <h2 className='text-center text-2xl font-semibold mb-6'>
+          Dialog Confirm
+        </h2>
+        <div className='flex justify-center gap-4'>
+          <Button
+            label='Dialog Confirm Warning'
+            severity='warning'
+            onClick={openConfirmWarningDialog}
+          />
+          <Button
+            label='Dialog Confirm Danger'
+            severity='danger'
+            onClick={openConfirmDangerDialog}
+          />
+          <Button
+            label='Dialog Confirm Info'
+            severity='primary'
+            onClick={openConfirmInfoDialog}
+          />
+        </div>
+      </section>
+
+      {/* Dialog Components */}
       <Dialog
         icon={<AlertFillIcon />}
         header='Dialog Header'
@@ -118,7 +201,44 @@ function App() {
       >
         <p>This is the dialog content.</p>
       </Dialog>
-    </>
+      <Dialog
+        icon={<AlertFillIcon />}
+        header='Dialog Warning'
+        severity='warning'
+        visible={isWarningDialogVisible}
+        onClose={closeWarningDialog}
+      >
+        <p>This is the warning dialog content.</p>
+      </Dialog>
+
+      {/* Dialog Confirm Components */}
+      <DialogConfirm
+        headerIcon={false}
+        header='Confirm Warning Action'
+        message='Please confirm the warning action.'
+        severity='warning'
+        onCancel={closeConfirmWarningDialog}
+        onSubmit={handleConfirmWarningSubmit}
+        visible={isConfirmWarningDialogVisible}
+      />
+      <DialogConfirm
+        header='Confirm Danger Action'
+        message='Please confirm the danger action.'
+        severity='danger'
+        onCancel={closeConfirmDangerDialog}
+        onSubmit={handleConfirmDangerSubmit}
+        visible={isConfirmDangerDialogVisible}
+      />
+      <DialogConfirm
+        header='Confirm Info Action'
+        items={['Item 1', 'Item 2']}
+        message='Please confirm the info action.'
+        severity='info'
+        onCancel={closeConfirmInfoDialog}
+        onSubmit={handleConfirmInfoSubmit}
+        visible={isConfirmInfoDialogVisible}
+      />
+    </div>
   );
 }
 
