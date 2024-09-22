@@ -20,6 +20,6 @@
     "jsx": "react-jsx"
   },
   "include": ["src", "./index.ts"],
-  "exclude": ["./src/playground/Playground.tsx"],
+  "exclude": ["./src/playground/Playground.tsx", "./src/App.tsx", "./src/main.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
