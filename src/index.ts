@@ -5,4 +5,14 @@ import Dialog from './components/Dialog/Dialog';
 import DialogConfirm from './components/DialogConfirm/DialogConfirm';
 import Toast from './components/Toast/Toast';
 import useToast from './components/Toast/useToast';
-export { Button, Toast, ToastProvider, useToast, Dialog, DialogConfirm, Accordion };
+import Menu from './components/Menu/Menu';
+export {
+  useToast,
+  Toast,
+  ToastProvider,
+  Button,
+  Dialog,
+  DialogConfirm,
+  Accordion,
+  Menu,
+};

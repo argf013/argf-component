@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Dialog from '../Dialog/Dialog';
 import { InfoIcon, AlertFillIcon } from '@primer/octicons-react';
 
@@ -97,27 +97,33 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
     };
   }, [visible, onCancel]);
 
-  const getButtonClass = (severity: 'info' | 'warning' | 'danger') => {
-    switch (severity) {
-      case 'warning':
-        return 'bg-yellow-500 text-white hover:bg-yellow-600 hover:text-gray-100';
-      case 'danger':
-        return 'bg-red-500 text-white hover:bg-red-600 hover:text-gray-100';
-      default:
-        return 'bg-blue-500 text-white hover:bg-blue-600 hover:text-gray-100';
-    }
-  };
+  const getButtonClass = useCallback(
+    (severity: 'info' | 'warning' | 'danger') => {
+      switch (severity) {
+        case 'warning':
+          return 'bg-yellow-500 text-white hover:bg-yellow-600 hover:text-gray-100';
+        case 'danger':
+          return 'bg-red-500 text-white hover:bg-red-600 hover:text-gray-100';
+        default:
+          return 'bg-blue-500 text-white hover:bg-blue-600 hover:text-gray-100';
+      }
+    },
+    [],
+  );
 
-  const getIcon = (severity: 'info' | 'warning' | 'danger') => {
-    if (!headerIcon) return null;
-    switch (severity) {
-      case 'warning':
-      case 'danger':
-        return <AlertFillIcon />;
-      default:
-        return <InfoIcon />;
-    }
-  };
+  const getIcon = useCallback(
+    (severity: 'info' | 'warning' | 'danger') => {
+      if (!headerIcon) return null;
+      switch (severity) {
+        case 'warning':
+        case 'danger':
+          return <AlertFillIcon />;
+        default:
+          return <InfoIcon />;
+      }
+    },
+    [headerIcon],
+  );
 
   return (
     <Dialog

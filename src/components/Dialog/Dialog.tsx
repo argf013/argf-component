@@ -1,14 +1,49 @@
-import { XIcon } from '@primer/octicons-react';
 import React, { useState, useEffect } from 'react';
+import { XIcon } from '@primer/octicons-react';
 
 interface DialogProps {
+  /**
+   * Sets the header of the dialog.
+   */
   header: string;
+
+  /**
+   * Sets the content of the dialog.
+   */
   children: React.ReactNode;
+
+  /**
+   * Controls whether the dialog is visible or not.
+   */
   visible: boolean;
+
+  /**
+   * Sets the size of the dialog.
+   * @default 'medium'
+   */
   size?: 'small' | 'medium' | 'large';
+
+  /**
+   * Sets the icon of the dialog.
+   */
   icon?: React.ReactNode;
+
+  /**
+   * Sets the severity of the dialog.
+   * @default 'info'
+   */
   severity?: 'info' | 'danger' | 'warning';
+
+  /**
+   * Controls whether the dialog can be closed by the user.
+   * @default
+   * true
+   */
   closeable?: boolean;
+
+  /**
+   * Callback function that is called when the dialog is closed.
+   */
   onClose: () => void;
 }
 
@@ -91,7 +126,7 @@ const Dialog: React.FC<DialogProps> = ({
               {closeable && (
                 <button
                   onClick={onClose}
-                  className='text-dark flex items-center'
+                  className='text-dark flex items-center hover:bg-gray-200 p-2 rounded-full'
                 >
                   <XIcon />
                 </button>
