@@ -134,7 +134,10 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
           {items?.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
         <div className='flex justify-end gap-2 mt-4'>
-          <button onClick={onCancel} className='hover:bg-gray-200 py-2 px-4 rounded-full'>
+          <button
+            onClick={onCancel}
+            className='hover:bg-gray-200 py-2 px-4 rounded-full'
+          >
             {cancelLabel}
           </button>
           <button

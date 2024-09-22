@@ -46,17 +46,14 @@ function App() {
   const closeConfirmInfoDialog = () => setConfirmInfoDialogVisible(false);
 
   const handleConfirmWarningSubmit = () => {
-    console.log('Warning Confirmed');
     closeConfirmWarningDialog();
   };
 
   const handleConfirmDangerSubmit = () => {
-    console.log('Danger Confirmed');
     closeConfirmDangerDialog();
   };
 
   const handleConfirmInfoSubmit = () => {
-    console.log('Info Confirmed');
     closeConfirmInfoDialog();
   };
 

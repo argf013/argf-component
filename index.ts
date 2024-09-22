@@ -4,4 +4,14 @@ import DialogConfirm from './src/components/DialogConfirm/DialogConfirm';
 import Toast from './src/components/Toast/Toast';
 import useToast from './src/components/Toast/useToast';
 import { ToastProvider } from './src/components/Toast/ToastProvider';
-export { Button, Toast, ToastProvider, useToast, Dialog, DialogConfirm };
+import { Accordion } from './src/components/Accordion/Accordion';
+
+export {
+  Button,
+  Toast,
+  ToastProvider,
+  useToast,
+  Dialog,
+  DialogConfirm,
+  Accordion,
+};
