@@ -221,6 +221,7 @@ function App() {
       <DialogConfirm
         header='Confirm Danger Action'
         message='Please confirm the danger action.'
+        items={['Item 133333333333333333333333333333333333333', 'Item 2']}
         severity='danger'
         onCancel={closeConfirmDangerDialog}
         onSubmit={handleConfirmDangerSubmit}

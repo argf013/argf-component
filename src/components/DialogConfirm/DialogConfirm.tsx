@@ -1,6 +1,8 @@
+import { Tooltip } from 'react-tooltip';
 import React, { useEffect, useCallback } from 'react';
 import Dialog from '../Dialog/Dialog';
 import { InfoIcon, AlertFillIcon } from '@primer/octicons-react';
+
 
 interface DialogConfirmProps {
   /**
@@ -97,6 +99,8 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
     };
   }, [visible, onCancel]);
 
+  
+
   const getButtonClass = useCallback(
     (severity: 'info' | 'warning' | 'danger') => {
       switch (severity) {
@@ -136,8 +140,16 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
     >
       <div>
         <span>{message}</span>
-        <ul className='list-disc px-6 py-2'>
-          {items?.map((item, index) => <li key={index}>{item}</li>)}
+        <ul className='list-disc px-2 py-2'>
+          {items?.map((item, index) => (
+            <li key={index} className='truncate ... max-w-xs'>
+              <span>&#8226; </span>
+              <span data-tooltip-id={`tooltip-${index}`} data-tooltip-content={item}>
+                {item}
+              </span>
+              <Tooltip id={`tooltip-${index}`} place="top" />
+            </li>
+          ))}
         </ul>
         <div className='flex justify-end gap-2 mt-4'>
           <button
