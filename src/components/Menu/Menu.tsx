@@ -128,13 +128,13 @@ const Menu: React.FC<MenuProps> = ({
         } origin-top-left`}
       >
         <ul
-          className={`menu-list absolute left-0 my-1 w-full flex gap-3 flex-col bg-white border border-gray-200 shadow-lg rounded ${sizeClasses[size]}`}
+          className={`menu-list absolute left-0 my-1 w-full flex gap-3 flex-col bg-white border border-gray-200 shadow-lg rounded ${sizeClasses[size]} ${itemClassName}`}
+          style={itemStyle}
         >
           {items.map((item, index) => (
             <li
               key={index}
-              className={`menu-item hover:underline ${item.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} gap-2 flex items-center ${item.danger ? 'text-red-500' : ''} ${itemClassName}`}
-              style={itemStyle}
+              className={`menu-item hover:underline ${item.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} gap-2 flex items-center ${item.danger ? 'text-red-500' : ''}`}
               onClick={() => handleClick(item)}
             >
               {item.icon && (
