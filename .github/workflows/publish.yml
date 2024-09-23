@@ -37,9 +37,6 @@ jobs:
           git config --global user.email "alghi344@gmail.com"
           git config --global user.name "argf013"
 
-      - name: Build the Package
-        run: pnpm build
-
       - name: Publish to npm
         run: |
           npm publish --registry=https://registry.npmjs.org
