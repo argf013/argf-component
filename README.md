@@ -5,25 +5,20 @@ TypeScript and Vite.
 
 ## Available Components
 
-1. **Button**
-2. **Dialog**
-3. **DialogConfirm**
-4. **Toast**
+1. **Accordion**
+2. **Button**
+3. **Dialog**
+4. **DialogConfirm**
+5. **Dropdown**
+6. **Menu**
+7. **Toast**
 
 ## Installation
 
 To install the dependencies, run the following command:
 
 ```sh
-pnpm install
-```
-
-## Development
-
-To start the development server, run:
-
-```
-pnpm  dev
+pnpm install argf-react
 ```
 
 ## Contribution
