@@ -1,6 +1,6 @@
 {
   "name": "argf-react",
-  "version": "2.1.4",
+  "version": "2.1.6",
   "private": false,
   "description": "Reusable React components",
   "author": "Muhamad Arfa Alghiffari",
@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "@primer/octicons-react": "^19.11.0",
+    "clsx": "^2.1.1",
     "eslint-plugin-prettier": "^5.2.1",
     "rollup-plugin-visualizer": "^5.12.0"
   },
