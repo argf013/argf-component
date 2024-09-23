@@ -3,20 +3,80 @@ import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import clsx from 'clsx';
 
 interface Option {
+  /**
+   * Label to be displayed in the dropdown
+   */
   label: string;
+
+  /**
+   * Value to be passed when the option is selected
+   */
   value: string;
 }
 
 interface DropdownProps {
+  /**
+   * Options to be displayed in the dropdown
+   * e.g. 
+   * [
+   *  {
+   *    label: 'Option 1',
+   *    value: 'option1'
+   *  },
+   *  {  
+   *    label: 'Option 2',
+   *    value: 'option2'
+   *  }
+   * ]
+   */
   options: Option[];
+
+  /**
+   * Callback function to be called when an option is selected
+   * e.g. (option) => alert(option.label)
+   */
   onSelect: (option: Option) => void;
+
+  /**
+   * Placeholder text to be displayed when no option is selected
+   * @default 'Select an option'
+   */
   placeholder?: string;
+
+  /**
+   * Size of the dropdown
+   * @default 'medium'
+   */
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+
+  /**
+   * Initial value to be displayed in the dropdown
+   */
   initialValue?: Option;
+
+  /**
+   * Custom styles to be applied to the dropdown
+   * e.g. { width: '200px', height: '300px' }
+   */
   style?: CSSProperties;
+
+  /**
+   * Custom class name to be applied to the dropdown
+   * e.g. 'text-red-500'
+   */
   className?: string;
+
+  /**
+   * Custom class name to be applied to the option label
+   * e.g. 'text-red-500'
+   */
   labelClassName?: string;
+
+  /**
+   * Whether the dropdown should be searchable
+   * @default false
+   */
   isSearchable?: boolean;
 }
 

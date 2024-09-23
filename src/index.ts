@@ -6,6 +6,7 @@ import DialogConfirm from './components/DialogConfirm/DialogConfirm';
 import Toast from './components/Toast/Toast';
 import useToast from './components/Toast/useToast';
 import Menu from './components/Menu/Menu';
+import Dropdown from './components/Dropdown/Dropdown';
 export {
   useToast,
   Toast,
@@ -15,4 +16,5 @@ export {
   DialogConfirm,
   Accordion,
   Menu,
+  Dropdown,
 };

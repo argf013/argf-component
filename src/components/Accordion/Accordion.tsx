@@ -6,12 +6,15 @@ import React, { useState } from 'react';
  */
 export interface AccordionItem {
   title: string;
+
+  /**
+   * Content to be displayed when the item is expanded.
+   * Can be a string or a React component.
+   * e.g <p>Hello this is accordion body</p>
+   */
   content: React.ReactNode;
 }
 
-/**
- * Props for the Accordion component.
- */
 interface AccordionProps {
   /**
    * Array of items to be displayed in the accordion.

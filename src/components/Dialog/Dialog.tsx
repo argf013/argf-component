@@ -9,6 +9,7 @@ interface DialogProps {
 
   /**
    * Sets the content of the dialog.
+   * e.g. <p>Hello this is dialog body</p>
    */
   children: React.ReactNode;
 
