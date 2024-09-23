@@ -51,5 +51,5 @@ export default [...compat.extends(
             argsIgnorePattern: "^_",
         }],
     },
-    ignores: ["Gruntfile.cjs"]
+    ignores: ["Gruntfile.cjs", "version.js", "dist/*"],
 }];

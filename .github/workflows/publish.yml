@@ -1,4 +1,4 @@
-name: Publish Package to npmjs and GitHub Packages
+name: Publish Package to npm
 
 on:
   push:
@@ -28,6 +28,9 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
+
+      - name: Get Latest Version
+        run: pnpm getLatestVersion
 
       - name: Configure Git
         run: |
