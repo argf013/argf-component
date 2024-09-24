@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
 import terser from '@rollup/plugin-terser';
 import path from 'path';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
   build: {
@@ -26,4 +28,9 @@ export default defineConfig({
     emptyOutDir: true,
   },
   plugins: [react(), dts()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss, autoprefixer],
+    },
+  },
 });
