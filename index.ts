@@ -8,6 +8,7 @@ import { Accordion } from './src/components/Accordion/Accordion';
 import Menu from './src/components/Menu/Menu';
 import Dropdown from './src/components/Dropdown/Dropdown';
 import Input from './src/components/Input/Input';
+import './src/output.css';
 
 export {
   Button,

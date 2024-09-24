@@ -8,6 +8,7 @@ import useToast from './components/Toast/useToast';
 import Menu from './components/Menu/Menu';
 import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
+import './output.css';
 export {
   useToast,
   Toast,
