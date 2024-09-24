@@ -7,6 +7,7 @@ import Toast from './components/Toast/Toast';
 import useToast from './components/Toast/useToast';
 import Menu from './components/Menu/Menu';
 import Dropdown from './components/Dropdown/Dropdown';
+import Input from './components/Input/Input';
 export {
   useToast,
   Toast,
@@ -17,4 +18,5 @@ export {
   Accordion,
   Menu,
   Dropdown,
+  Input,
 };

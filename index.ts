@@ -7,6 +7,7 @@ import { ToastProvider } from './src/components/Toast/ToastProvider';
 import { Accordion } from './src/components/Accordion/Accordion';
 import Menu from './src/components/Menu/Menu';
 import Dropdown from './src/components/Dropdown/Dropdown';
+import Input from './src/components/Input/Input';
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   DialogConfirm,
   Accordion,
   Dropdown,
+  Input,
 };
