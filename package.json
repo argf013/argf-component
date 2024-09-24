@@ -1,6 +1,6 @@
 {
   "name": "argf-react",
-  "version": "2.1.9",
+  "version": "2.1.14",
   "private": false,
   "description": "Reusable React components",
   "author": "Muhamad Arfa Alghiffari",
@@ -33,7 +33,8 @@
     "lint": "eslint . --ignore-pattern dist *.cjs",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
-    "getLatestVersion": "node version.cjs"
+    "getLatestVersion": "node version.cjs",
+    "git": "pnpm getLatestVersion && git add ."
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",

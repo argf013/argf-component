@@ -161,7 +161,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         className={clsx(
           'inline-flex items-center gap-2 justify-left',
           sizeClass,
-          'rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50',
+          'rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50',
           { 'cursor-not-allowed opacity-50': disabled },
         )}
         disabled={disabled}

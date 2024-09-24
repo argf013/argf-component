@@ -3,7 +3,6 @@ import React, { useEffect, useCallback } from 'react';
 import Dialog from '../Dialog/Dialog';
 import { InfoIcon, AlertFillIcon } from '@primer/octicons-react';
 
-
 interface DialogConfirmProps {
   /**
    *  Set the dialog header text
@@ -99,17 +98,15 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
     };
   }, [visible, onCancel]);
 
-  
-
   const getButtonClass = useCallback(
     (severity: 'info' | 'warning' | 'danger') => {
       switch (severity) {
         case 'warning':
-          return 'bg-yellow-500 text-white hover:bg-yellow-600 hover:text-gray-100';
+          return 'bg-warning hover:bg-warning-hover text-white hover:text-gray-100';
         case 'danger':
-          return 'bg-red-500 text-white hover:bg-red-600 hover:text-gray-100';
+          return 'bg-danger hover:bg-danger-hover text-white hover:text-gray-100';
         default:
-          return 'bg-blue-500 text-white hover:bg-blue-600 hover:text-gray-100';
+          return 'bg-primary hover:bg-primary-hover text-white hover:text-gray-100';
       }
     },
     [],
@@ -144,23 +141,26 @@ const DialogConfirm: React.FC<DialogConfirmProps> = ({
           {items?.map((item, index) => (
             <li key={index} className='truncate ... max-w-xs'>
               <span>&#8226; </span>
-              <span data-tooltip-id={`tooltip-${index}`} data-tooltip-content={item}>
+              <span
+                data-tooltip-id={`tooltip-${index}`}
+                data-tooltip-content={item}
+              >
                 {item}
               </span>
-              <Tooltip id={`tooltip-${index}`} place="top" />
+              <Tooltip id={`tooltip-${index}`} place='top' />
             </li>
           ))}
         </ul>
         <div className='flex justify-end gap-2 mt-4'>
           <button
             onClick={onCancel}
-            className='hover:bg-gray-200 py-2 px-4 rounded-full'
+            className='hover:bg-gray-200 py-2 px-5  rounded-full'
           >
             {cancelLabel}
           </button>
           <button
             onClick={onSubmit}
-            className={`${getButtonClass(severity)} py-2 px-4 rounded-full`}
+            className={`${getButtonClass(severity)} py-2 px-5 rounded-full`}
           >
             {submitLabel}
           </button>

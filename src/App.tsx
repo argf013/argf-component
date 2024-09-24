@@ -111,6 +111,11 @@ function App() {
             onClick={() => addToast({ severity: 'success', message: 'Yeah' })}
           />
           <Button
+            label='Success'
+            severity='success'
+            onClick={() => addToast({ severity: 'success', message: 'Yeah' })}
+          />
+          <Button
             label='Error'
             severity='danger'
             onClick={() => addToast({ severity: 'error', message: 'Yes' })}

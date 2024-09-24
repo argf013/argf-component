@@ -107,7 +107,7 @@ export const Accordion: React.FC<AccordionProps> = ({
           <h2 id={`accordion-collapse-heading-${index}`}>
             <button
               type='button'
-              className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 ${
+              className={`flex items-center justify-between bg-gray-100 hover:bg-gray-200 w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 ${
                 index === 0 ? 'rounded-tl-xl rounded-tr-xl' : ''
               } hover:bg-gray-100 gap-3 ${headingClassName}`}
               onClick={() => toggleAccordion(index)}
@@ -123,10 +123,10 @@ export const Accordion: React.FC<AccordionProps> = ({
           </h2>
           <div
             id={`accordion-collapse-body-${index}`}
-            className={`transition-max-height duration-${animationDuration} ease-in-out overflow-hidden ${expanded.includes(index) ? 'max-h-screen' : 'max-h-0'} ${contentClassName}`}
+            className={`transition-max-height bg-[#f5f6f7] duration-${animationDuration} ease-in-out overflow-hidden ${expanded.includes(index) ? 'max-h-screen' : 'max-h-0'} ${contentClassName}`}
             aria-labelledby={`accordion-collapse-heading-${index}`}
           >
-            <div className='p-5 border border-b-0 border-gray-200 '>
+            <div className='p-5 text-sm border border-b-0 border-gray-200 '>
               {item.content}
             </div>
           </div>

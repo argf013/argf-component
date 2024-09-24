@@ -1,6 +1,7 @@
 import React from 'react';
+import clsx from 'clsx';
 
-type Severity = 'primary' | 'secondary' | 'danger' | 'warning';
+type Severity = 'primary' | 'secondary' | 'danger' | 'warning' | 'success';
 
 interface ButtonProps {
   /**
@@ -29,6 +30,16 @@ interface ButtonProps {
    * e.g. <InfoIcon />
    */
   icon?: React.ReactNode;
+
+  /**
+   * Additional styles for the button
+   */
+  style?: React.CSSProperties;
+
+  /**
+   * Additional class names for the button
+   */
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -37,20 +48,24 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   rounded,
   icon,
+  style,
+  className,
 }) => {
   const getButtonClass = (severity: string) => {
     const baseClass =
-      'text-white font-medium text-[13px] md:text-base lg:text-sm px-5 py-2.5';
+      'text-white font-medium text-[14px] px-5 py-2.5';
     const roundedClass = rounded ? 'rounded-full' : 'rounded-md';
     switch (severity) {
       case 'primary':
-        return `${baseClass} ${roundedClass} bg-[#009384] hover:bg-[#007d70] `;
+        return `${baseClass} ${roundedClass} bg-primary hover:bg-primary-hover`;
       case 'secondary':
-        return `${baseClass} ${roundedClass} bg-gray-600 hover:bg-gray-700`;
+        return `${baseClass} ${roundedClass} bg-secondary hover:bg-secondary-hover`;
       case 'danger':
-        return `${baseClass} ${roundedClass} bg-red-500 hover:bg-red-600 `;
+        return `${baseClass} ${roundedClass} bg-danger hover:bg-danger-hover`;
       case 'warning':
-        return `${baseClass} ${roundedClass} bg-yellow-600 hover:bg-yellow-700`;
+        return `${baseClass} ${roundedClass} bg-warning hover:bg-warning-hover`;
+      case 'success':
+        return `${baseClass} ${roundedClass} bg-success hover:bg-success-hover`;
       default:
         return baseClass;
     }
@@ -58,11 +73,16 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${getButtonClass(severity as Severity)} flex flex-row items-center`}
+      className={clsx(
+        getButtonClass(severity as Severity),
+        'flex flex-row items-center',
+        className,
+      )}
       onClick={onClick}
+      style={style}
     >
       {icon && <span className='mr-2'>{icon}</span>}
-      {label}
+      <span>{label}</span>
     </button>
   );
 };
