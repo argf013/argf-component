@@ -26,6 +26,7 @@ export default defineConfig({
     },
     sourcemap: true,
     emptyOutDir: true,
+    cssCodeSplit: false, // Added cssCodeSplit option
   },
   plugins: [react(), dts()],
   css: {
