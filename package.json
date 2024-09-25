@@ -1,6 +1,6 @@
 {
   "name": "argf-react",
-  "version": "2.1.35",
+  "version": "2.1.36",
   "private": false,
   "description": "Reusable React components",
   "author": "Muhamad Arfa Alghiffari",
@@ -71,7 +71,8 @@
     "clsx": "^2.1.1",
     "eslint-plugin-prettier": "^5.2.1",
     "react-tooltip": "^5.28.0",
-    "rollup-plugin-visualizer": "^5.12.0"
+    "rollup-plugin-visualizer": "^5.12.0",
+    "vite-plugin-css-injected-by-js": "^3.5.1"
   },
   "keywords": [
     "react",

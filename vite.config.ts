@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
 import terser from '@rollup/plugin-terser';
 import path from 'path';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default defineConfig({
   build: {
@@ -20,7 +21,11 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
       },
-      plugins: [terser(), visualizer({ filename: './stats/stats.html' })],
+      plugins: [
+        terser(),
+        visualizer({ filename: './stats/stats.html' }),
+        cssInjectedByJsPlugin(),
+      ],
     },
     cssMinify: true,
     sourcemap: false,
