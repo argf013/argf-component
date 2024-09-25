@@ -1,7 +1,7 @@
 /**
  * Style
  */
-import * as styles from './src/output.css';
+import * as styles from './style.css';
 
 import Button from './src/components/Button/Button';
 import Dialog from './src/components/Dialog/Dialog';

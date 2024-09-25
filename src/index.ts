@@ -1,7 +1,7 @@
 /**
  * Style
  */
-import * as styles from './output.css';
+import * as styles from './style.css';
 
 import { ToastProvider } from './components/Toast/ToastProvider';
 import { Accordion } from './components/Accordion/Accordion';

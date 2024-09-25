@@ -1,6 +1,6 @@
 {
   "name": "argf-react",
-  "version": "2.1.32",
+  "version": "2.1.33",
   "private": false,
   "description": "Reusable React components",
   "author": "Muhamad Arfa Alghiffari",
@@ -30,7 +30,7 @@
   "scripts": {
     "dev": "vite",
     "clean": "rimraf dist",
-    "build:css": "npx tailwindcss -i ./src/index.css -o ./src/output.css",
+    "build:css": "npx tailwindcss -i ./src/index.css -o ./style.css",
     "build": "npm run clean && npm run build:css && tsc && vite build && grunt bump",
     "lint": "eslint . --ignore-pattern dist *.cjs",
     "preview": "vite preview",
