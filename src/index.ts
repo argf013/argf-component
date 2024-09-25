@@ -1,4 +1,6 @@
-// Style
+/**
+ * Style
+ */
 import './output.css';
 
 import { ToastProvider } from './components/Toast/ToastProvider';
@@ -11,7 +13,6 @@ import useToast from './components/Toast/useToast';
 import Menu from './components/Menu/Menu';
 import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
-
 
 export {
   useToast,
