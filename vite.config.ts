@@ -24,9 +24,9 @@ export default defineConfig({
       },
       plugins: [terser(), visualizer({ filename: './stats/stats.html' })],
     },
-    sourcemap: true,
+    sourcemap: false,
     emptyOutDir: true,
-    cssCodeSplit: false, // Added cssCodeSplit option
+    cssCodeSplit: false,
   },
   plugins: [react(), dts()],
   css: {
