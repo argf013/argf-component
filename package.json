@@ -1,6 +1,6 @@
 {
   "name": "argf-react",
-  "version": "2.1.19",
+  "version": "2.1.20",
   "private": false,
   "description": "Reusable React components",
   "author": "Muhamad Arfa Alghiffari",
@@ -14,7 +14,7 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js",
       "types": "./dist/index.d.ts",
-      "style": "./dist/style.css"
+      "styles": "./dist/style.css"
     }
   },
   "files": [
