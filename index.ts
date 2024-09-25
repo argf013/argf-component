@@ -1,7 +1,7 @@
 /**
  * Style
  */
-import './src/output.css';
+import * as styles from './src/output.css';
 
 import Button from './src/components/Button/Button';
 import Dialog from './src/components/Dialog/Dialog';
@@ -15,6 +15,7 @@ import Dropdown from './src/components/Dropdown/Dropdown';
 import Input from './src/components/Input/Input';
 
 export {
+  styles,
   Button,
   Menu,
   Toast,

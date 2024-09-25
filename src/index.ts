@@ -1,7 +1,7 @@
 /**
  * Style
  */
-import './output.css';
+import * as styles from './output.css';
 
 import { ToastProvider } from './components/Toast/ToastProvider';
 import { Accordion } from './components/Accordion/Accordion';
@@ -15,6 +15,7 @@ import Dropdown from './components/Dropdown/Dropdown';
 import Input from './components/Input/Input';
 
 export {
+  styles,
   useToast,
   Toast,
   ToastProvider,
