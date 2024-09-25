@@ -39,9 +39,9 @@ const Toast: React.FC<ToastProps> = ({
   };
 
   const severityClasses = {
-    error: 'bg-[#c04d4d] text-white',
-    success: 'bg-[#5c865c] text-white',
-    warning: 'bg-[#e0a736] text-white',
+    error: 'bg-danger text-white',
+    success: 'bg-success text-white',
+    warning: 'bg-warning text-white',
   };
 
   const severityIcons = {
