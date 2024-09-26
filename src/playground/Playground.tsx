@@ -4,6 +4,7 @@ import Input from '../components/Input/Input';
 import { Accordion, AccordionItem } from '../components/Accordion/Accordion';
 import Button from '../components/Button/Button';
 import useToast from '../components/Toast/useToast';
+import { CheckCircleFillIcon } from '@primer/octicons-react';
 
 const Playground = () => {
   const [inputValue, setInputValue] = useState('');
@@ -49,13 +50,17 @@ const Playground = () => {
         multiple={true}
         animationDuration={300}
       />
-      <Button
-        label='Test Toast'
-        severity='primary'
-        onClick={() =>
-          addToast({ severity: 'success', message: 'Hello, World!' })
-        }
-      />
+      <div>
+        <Button
+          icon={<CheckCircleFillIcon />}
+          rounded
+          label='Test Toast'
+          severity='primary'
+          onClick={() =>
+            addToast({ severity: 'success', message: 'Hello, World!' })
+          }
+        />
+      </div>
     </div>
   );
 };
