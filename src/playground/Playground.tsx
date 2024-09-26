@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Dropdown from '../components/Dropdown/Dropdown';
 import Input from '../components/Input/Input';
 import { Accordion, AccordionItem } from '../components/Accordion/Accordion';
+import Button from '../components/Button/Button';
+import useToast from '../components/Toast/useToast';
 
 const Playground = () => {
   const [inputValue, setInputValue] = useState('');
+  const { addToast } = useToast();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -45,6 +48,13 @@ const Playground = () => {
         defaultActiveIndex={0}
         multiple={true}
         animationDuration={300}
+      />
+      <Button
+        label='Test Toast'
+        severity='primary'
+        onClick={() =>
+          addToast({ severity: 'success', message: 'Hello, World!' })
+        }
       />
     </div>
   );
