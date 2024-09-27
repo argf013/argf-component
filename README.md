@@ -12,10 +12,11 @@ TypeScript and Vite.
 5. **Dropdown**
 6. **Menu**
 7. **Toast**
+8. **Input**
 
 ## Installation
 
-To install the dependencies, run the following command:
+To install, run the following command:
 
 ```sh
 pnpm install argf-react
